@@ -34,20 +34,24 @@ navigator.mediaDevices.getUserMedia({
     })
 
     let text = $("input");
-// when press enter send message
-$('html').keydown(function (e) {
-  if (e.which == 13 && text.val().length !== 0) {
-    // console.log(text.val())
-    socket.emit('message', text.val());
-    text.val('')
-  }
-});
+    // when press enter send message
+    $('html').keydown(function (e) {
+    if (e.which == 13 && text.val().length !== 0) {
+        // console.log(text.val())
+        socket.emit('message', text.val());
+        text.val('')
+    }
+    });
 
-socket.on('createMessage', message => {
-    console.log('this if from deddfa');
-    $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
-    scrollToBottom()
-})
+    socket.on('createMessage', message => {
+        console.log('this if from deddfa');
+        $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
+        scrollToBottom()
+    })
+
+    socket.on('user-disconnected', userId => {
+        if (peers[userId]) peers[userId].close()
+    })
 
 })
 

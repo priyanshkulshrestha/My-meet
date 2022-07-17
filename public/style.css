@@ -46,6 +46,7 @@
 #videoGrid{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 video{
@@ -119,7 +120,7 @@ video{
     border-bottom: 1px solid rgb(172, 172, 172);
     list-style: none;
     padding: 5px 15px;
-    
+
 }
 
 .unmute, .stop{
