@@ -31,6 +31,7 @@ It is built on top of the WebSocket protocol and provides additional guarantees 
     - First clone this repo
     - Install node modules using command
         npm i 
+    - comment line 12 in Script.js and uncomment line 13
     - Run the script devStart or start
         npm run devStart
             or
